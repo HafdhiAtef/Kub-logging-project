@@ -15,5 +15,6 @@ spec:
       containers:
       - name: my-app-container
         image: atefagyla/my-app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80

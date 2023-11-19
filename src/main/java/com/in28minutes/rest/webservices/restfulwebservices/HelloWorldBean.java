@@ -1,5 +1,8 @@
 package com.in28minutes.rest.webservices.restfulwebservices;
 
+
+
+
 public class HelloWorldBean {
 
 	private String message;
@@ -20,5 +23,6 @@ public class HelloWorldBean {
 	public String toString() {
 		return String.format("HelloWorldBean [message=%s]", message);
 	}
+
 
 }

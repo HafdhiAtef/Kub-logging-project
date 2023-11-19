@@ -7,8 +7,7 @@ spec:
     app: my-app
   ports:
     - protocol: TCP
-      port: 8200
+      port: 80
       targetPort: 80
-      nodePort: 30000
-  type: NodePort
+  type: LoadBalancer
   
