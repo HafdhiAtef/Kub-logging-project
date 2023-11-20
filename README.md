@@ -2,6 +2,8 @@
 
 This project demonstrates the deployment of two applications on Amazon EKS using Kubernetes. It includes Elasticsearch and Kibana clusters managed with the Elastic Cloud on Kubernetes (ECK) operator.
 
+![actual-architecture](actual-archi.png)
+
 ## Elasticsearch Setup
 
 1. Generate Custom Resource Definitions (CRDs):
