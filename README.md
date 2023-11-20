@@ -141,7 +141,7 @@ This project demonstrates the deployment of two applications on Amazon EKS using
 - Elastic credentials for Kibana:
 
     Username: elastic
-    Password: XIhgXbM5Pj5962sJ%
+    Password: $$$$$$$$$
 
 - Patching Kibana service to use LoadBalancer:
 
