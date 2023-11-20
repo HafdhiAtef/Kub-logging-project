@@ -4,6 +4,8 @@ This project demonstrates the deployment of two applications on Amazon EKS using
 
 ![actual-architecture](actual-archi.png)
 
+![gloabal architecture with metric-server and filebeat](second-archi.png)
+
 ## Elasticsearch Setup
 
 1. Generate Custom Resource Definitions (CRDs):
@@ -40,6 +42,11 @@ This project demonstrates the deployment of two applications on Amazon EKS using
         config:
           node.store.allow_mmap: false
     EOF
+    ```
+5. Install metrics-server:
+
+    ```bash
+    kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
     ```
 
 ## Kibana Setup

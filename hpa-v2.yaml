@@ -1,0 +1,72 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  creationTimestamp: "2023-11-20T14:31:06Z"
+  name: my-app-deployment
+  namespace: default
+  resourceVersion: "578101"
+  uid: 75882cc6-167a-4554-80fe-b39600436562
+spec:
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 50
+  - type: Pods
+    pods:
+      metricName: "jvm_memory_used_bytes"
+      target:
+        type: Utilization
+        averageUtilization: 50
+  - type: Pods
+    pods:
+      metricName: "jvm_threads_peak"
+      target:
+        type: Value
+        value: 500
+  - type: Pods
+    pods:
+      metricName: "tomcat_global_request_max"
+      target:
+        type: Value
+        value: 1000  
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        averageUtilization: 50
+        type: Utilization
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-app-deployment
+status:
+  conditions:
+  - lastTransitionTime: "2023-11-20T14:31:21Z"
+    message: recent recommendations were higher than the current one, applying the highest recent recommendation
+    reason: ScaleDownStabilized
+    status: "True"
+    type: AbleToScale
+  - lastTransitionTime: "2023-11-20T14:31:21Z"
+    message: the HPA was able to successfully calculate a replica count from CPU resource utilization (percentage of request)
+    reason: ValidMetricFound
+    status: "True"
+    type: ScalingActive
+  - lastTransitionTime: "2023-11-20T14:31:21Z"
+    message: the desired count is within the acceptable range
+    reason: DesiredWithinRange
+    status: "False"
+    type: ScalingLimited
+  currentMetrics:
+  - resource:
+      current:
+        averageUtilization: 0
+        averageValue: 1m
+      name: cpu
+    type: Resource
+  currentReplicas: 2
+  desiredReplicas: 2
