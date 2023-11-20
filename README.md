@@ -1,36 +1,152 @@
-# Hello World Rest API
+# EKS Kubernetes Project
 
-- Main class com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication 
-- You cannot run this app on local as it is configured to run on port 80 - https://serverfault.com/questions/112795/how-to-run-a-server-on-port-80-as-a-normal-user-on-linux. You can run it as a docker container as shown below
+This project demonstrates the deployment of two applications on Amazon EKS using Kubernetes. It includes Elasticsearch and Kibana clusters managed with the Elastic Cloud on Kubernetes (ECK) operator.
 
+## Elasticsearch Setup
 
-### Creating Containers
+1. Generate Custom Resource Definitions (CRDs):
 
-- mvn clean package
-- docker run --publish 8200:80 in28min/aws-hello-world-rest-api:0.0.1-SNAPSHOT
+    ```bash
+    kubectl create -f https://download.elastic.co/downloads/eck/2.10.0/crds.yaml
+    ```
 
-```
-docker login
-docker push @@REPO@@/aws-hello-world-rest-api:0.0.1-SNAPSHOT
-```
+2. Install the ECK operator with RBAC rules:
+
+    ```bash
+    kubectl apply -f https://download.elastic.co/downloads/eck/2.10.0/operator.yaml
+    ```
+
+3. Get an overview of the current Elasticsearch clusters:
+
+    ```bash
+    kubectl get elasticsearch
+    ```
+
+4. Create an Elasticsearch cluster:
+
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: elasticsearch.k8s.elastic.co/v1
+    kind: Elasticsearch
+    metadata:
+      name: quickstart
+    spec:
+      version: 8.11.1
+      nodeSets:
+      - name: default
+        count: 1
+        config:
+          node.store.allow_mmap: false
+    EOF
+    ```
+
+## Kibana Setup
+
+1. Create a Kibana cluster:
+
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: kibana.k8s.elastic.co/v1
+    kind: Kibana
+    metadata:
+      name: quickstart
+    spec:
+      version: 8.11.1
+      count: 1
+      elasticsearchRef:
+        name: quickstart
+    EOF
+    ```
+
+2. Check the status of the Elasticsearch cluster:
+
+    ```bash
+    kubectl get elasticsearch
+    ```
+
+3. Access Kibana locally:
+
+    ```bash
+    kubectl port-forward deployment/kibana-kibana 5601
+    ```
+
+## Running the Applications
+
+### Hello World Rest API
+
+- Main class: `com.in28minutes.rest.webservices.restfulwebservices.RestfulWebServicesApplication`
+- This app is configured to run on port 80.
+
+### Building and Running Containers
+
+- Build the Docker image:
+
+    ```bash
+    mvn clean package
+    docker build -t atefagyla/my-app:latest .
+    ```
+
+- Run the Docker container:
+
+    ```bash
+    docker run -p 8200:80 atefagyla/my-app
+    ```
 
 ## Test URLs
 
-- http://localhost:8200/hello-world
+- [http://localhost:8200/hello-world](http://localhost:8200/hello-world)
 
-```txt
-Hello World
-```
+    ```txt
+    Hello World
+    ```
 
-- http://localhost:8200/hello-world-bean
+- [http://localhost:8200/hello-world-bean](http://localhost:8200/hello-world-bean)
 
-```json
-{"message":"Hello World - Changed"}
-```
+    ```json
+    {"message":"Hello World - Changed"}
+    ```
 
-- http://localhost:8200/hello-world/path-variable/in28minutes
+- [http://localhost:8200/hello-world/path-variable/in28minutes](http://localhost:8200/hello-world/path-variable/in28minutes)
 
-```json
-{"message":"Hello World, in28minutes"}
-```
+    ```json
+    {"message":"Hello World, in28minutes"}
+    ```
+
+## Additional Configuration
+
+- Helm chart installation for Elasticsearch:
+
+    ```bash
+    helm install elasticsearch elastic/elasticsearch -f ./values.yaml
+    ```
+
+- Port-forwarding for Elasticsearch:
+
+    ```bash
+    kubectl port-forward svc/elasticsearch-master 9200
+    ```
+
+- Helm chart installation for Kibana:
+
+    ```bash
+    helm install kibana elastic/kibana
+    ```
+
+- Port-forwarding for Kibana:
+
+    ```bash
+    kubectl port-forward deployment/kibana-kibana 5601
+    ```
+
+- Elastic credentials for Kibana:
+
+    Username: elastic
+    Password: XIhgXbM5Pj5962sJ%
+
+- Patching Kibana service to use LoadBalancer:
+
+    ```bash
+    kubectl patch service kibana -n elk-stack -p '{"spec": {"type": "LoadBalancer"}}'
+    ```
+
 

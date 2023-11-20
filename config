@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Config
+preferences: {}
+clusters:
+- cluster:
+    certificate-authority-data: 
+LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJVEdTTW1tZW03Mmd3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpFeE1UZ3hPREUxTVROYUZ3MHpNekV4TVRVeE9ESXdNVE5hTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMzejVUQXAvaHlZbmlzdlFrdlJhRG1aZ1lkUDh4MWx0b2VXQjlkS2ljcW0rVkhtRHgvVzYwR2J1WTIKY0FlcFBrVzU4ZEM3YkxIWkVoUFBmdTEvUnM0Z1JRY1lIcng3N2N2T3FZOGVLY3pZblY2OVAwVXZZaWc0akEzaApTWEZMYk13MFllRWl1b0dXdlR5SE0weHZqRkYwVjE5RE1LS3I4VmoxTlhKL3F0T2hTMzNMYkdYenNqN01naFFHCjB3eEJSQlRZQXd1L2VtLzZPTGFPLzNKT1MrdWM5ZDF1b1hwRGN4Y0duVFhzS1Z4enpjeVl5a2RVK1VmWk5zT1YKaU5wNjRMQlFuSUJMbVF2aURYdWhUTTNkWTN3MmUwUXFMRUJVM3VoSW91UjZSM05KNFppT21kT256QldwMjc4dwpxei91RG9oc3MxenVaaGNaN1d5MWN4UHlwWU45QWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJRWmxoNmtFaXVsYzhGdzI3eTh5R0lQVTQzWHFEQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQnJiSTZjTFNOdwpscmxPSXVRbWdUeFJpZ05ySFN6OERhQzhTWGNFY2JFSUpmUjA2ZkhjaHZ4dHc3K1p6Uy96SVJzUkpkbktIQWVpCk10VUFGZGVOcjl1aFFQL2IyUWZYN2UveGJta3BzdGpEWHJsY3l3Y0hWUU9peCtaUzlldEZyY215ZkdCZ1plQmEKdHlRY3h0b1NPODJNcUlPSWdxVlRXMFBGOVQ2STVJOHA5a3pBQnBVQmJZc05oeXV6NjJIS2c3ZnhLZXduM0dBSQpyU3RmUVlZM0dxSWNpVHJQL1o5OTVPaXhPTnRRNCsvMmNFKzVDQUhBTTE3NVJqS01ueVF5M2YxNStSVEtzYnI1Cm9SaWplTWRLNGgwZGcrMnBobXFYeHJFeVpWa0VoSGdwN2lsSHdLMnN4R3AyTXI0dkl6ai9iUi9jakFyT25VUlEKSFdnY2dTRDVFRE8zCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://225684454AC0F12255C59F86C3803D7D.gr7.eu-west-1.eks.amazonaws.com
+  name: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster
+users:
+- name: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - eu-west-1
+      - eks
+      - get-token
+      - --cluster-name
+      - atef-demo-cluster
+      - --output
+      - json
+      command: aws
+contexts:
+- context:
+    cluster: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster
+    user: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster
+  name: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster
+current-context: arn:aws:eks:eu-west-1:836327875442:cluster/atef-demo-cluster

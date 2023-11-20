@@ -1,0 +1,40 @@
+2023-11-19 14:03:01.862  INFO 88736 --- [main] r.w.r.RestfulWebServicesApplicationTests : Starting RestfulWebServicesApplicationTests on MacBook-Air-de-Agyla-5.local with PID 88736 (started by agyla in /Users/agyla/Desktop/deploy-spring-microservices-to-aws-ecs-fargate/01-hello-world-rest-api)
+2023-11-19 14:03:01.863  INFO 88736 --- [main] r.w.r.RestfulWebServicesApplicationTests : No active profile set, falling back to default profiles: default
+2023-11-19 14:03:02.402  INFO 88736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-11-19 14:03:02.495  INFO 88736 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-11-19 14:03:02.510  INFO 88736 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:02.511  INFO 88736 --- [main] r.w.r.RestfulWebServicesApplicationTests : Started RestfulWebServicesApplicationTests in 0.968 seconds (JVM running for 1.313)
+2023-11-19 14:03:02.633  INFO 88736 --- [Thread-2] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2023-11-19 14:03:02.633  INFO 88736 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-11-19 14:03:23.965  INFO 88781 --- [main] c.i.r.w.r.RestfulWebServicesApplication  : Starting RestfulWebServicesApplication v1.0.0-RELEASE on MacBook-Air-de-Agyla-5.local with PID 88781 (/Users/agyla/Desktop/deploy-spring-microservices-to-aws-ecs-fargate/01-hello-world-rest-api/target/01-aws-hello-world-rest-api-1.0.0-RELEASE.jar started by agyla in /Users/agyla/Desktop/deploy-spring-microservices-to-aws-ecs-fargate/01-hello-world-rest-api)
+2023-11-19 14:03:23.967  INFO 88781 --- [main] c.i.r.w.r.RestfulWebServicesApplication  : No active profile set, falling back to default profiles: default
+2023-11-19 14:03:24.527  INFO 88781 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-11-19 14:03:24.537  INFO 88781 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-19 14:03:24.537  INFO 88781 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2023-11-19 14:03:24.541  INFO 88781 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/agyla/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2023-11-19 14:03:24.572  INFO 88781 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-19 14:03:24.572  INFO 88781 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 583 ms
+2023-11-19 14:03:24.587  INFO 88781 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2023-11-19 14:03:24.588  INFO 88781 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2023-11-19 14:03:24.589  INFO 88781 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2023-11-19 14:03:24.589  INFO 88781 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2023-11-19 14:03:24.589  INFO 88781 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2023-11-19 14:03:24.686  INFO 88781 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-11-19 14:03:24.754  INFO 88781 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2023-11-19 14:03:24.770  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:24.785  INFO 88781 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-11-19 14:03:24.786  INFO 88781 --- [main] c.i.r.w.r.RestfulWebServicesApplication  : Started RestfulWebServicesApplication in 0.997 seconds (JVM running for 1.225)
+2023-11-19 14:03:27.775  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:30.781  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:33.784  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:36.785  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:39.789  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:42.791  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:45.793  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:48.799  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:51.805  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:54.812  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:03:57.813  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:04:00.818  INFO 88781 --- [scheduling-1] c.i.r.w.r.RestfulWebServicesApplication  : Logging a message every 30 seconds
+2023-11-19 14:04:01.952  INFO 88781 --- [Thread-2] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2023-11-19 14:04:01.953  INFO 88781 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
